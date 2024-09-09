@@ -1,0 +1,43 @@
+@use 'variables';
+@use 'mixins/text';
+@use "sass:color";
+
+.card {
+  background-color: variables.$primary;
+  margin: 5px;
+  padding: 5px;
+
+  &__media {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); 
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    background-color: color.adjust(variables.$primary, $lightness: 15%);
+    color: color.complement(variables.$primary);
+    @include text.small-cap;
+ 
+    
+    &:hover {
+      background-color: color.adjust(variables.$primary, $lightness: 25%);
+    }
+  }
+}
